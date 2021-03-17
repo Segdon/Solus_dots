@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# This file is sourced by display managers before the X user session starts.
+export XDG_CONFIG_HOME="$HOME/.config"
+export PATH="$HOME/.local/bin:$PATH"
+
+#mpd &                #or by daemon?
+#dunst &
+nitrogen --restore; sleep 1;
