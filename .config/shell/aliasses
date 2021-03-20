@@ -24,17 +24,14 @@ alias fgrep='fgrep --color=auto'
 alias wget="wget -c"
 
 # Aliases for software managment
-# pacman or pm
-alias pacman='sudo pacman --color auto'
-alias update='sudo pacman -Syyu'
-
-alias pupdate='pamac update'
-alias pbuild='pamac build'
-alias pinstall='sudo pamac install'
+# eopkg
+alias update='sudo eopkg upgrade'
+alias eup='sudo eopkg upgrade'
 
 # yay as aur helper - updates everything
-alias pksyua="yay -Syu --noconfirm"
-alias upall="yay -Syu --noconfirm"
+
+alias copyPackages="eopkg li | cut -d ' ' -f 1 | tr '\n' ' ' > ~/InstalledPackages"
+alias restorePackages='sudo eopkg install $(cat InstalledPackages)'
 
 #merge new settings
 alias merge="xrdb -merge ~/.Xresources"
@@ -42,9 +39,6 @@ alias merge="xrdb -merge ~/.Xresources"
 #ps
 alias ps="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
-
-#grub update
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 #improve png
 alias fixpng="find . -type f -name "*.png" -exec convert {} -strip {} \;"
@@ -54,12 +48,6 @@ alias update-fc='sudo fc-cache -fv'
 
 #hardware info --short
 alias hw="hwinfo --short"
-
-#get fastest mirrors in your neighborhood
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 #mounting the folder Public for exchange between host and guest on virtualbox
 alias vbm="sudo mount -t vboxsf -o rw,uid=1000,gid=1000 Public /home/$USER/Public"
@@ -74,24 +62,11 @@ alias yt="youtube-dl --add-metadata -i"
 alias yta="yt -x -f bestaudio/best"
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
-#Recent Installed Packages
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -100"
-
-#Cleanup orphaned packages
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-
 #get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
 #textedits
 alias cfa="nvim ~/.config/shell/aliasses"
-alias nlightdm="sudo nano /etc/lightdm/lightdm.conf"
-alias npacman="sudo nano /etc/pacman.conf"
-alias ngrub="sudo nano /etc/default/grub"
-alias nmkinitcpio="sudo nano /etc/mkinitcpio.conf"
-alias nslim="sudo nano /etc/slim.conf"
-alias noblogout="sudo nano /etc/oblogout.conf"
-alias nmirrorlist="sudo nano /etc/pacman.d/mirrorlist"
 
 #shutdown or reboot
 alias ssn="sudo shutdown now"
@@ -99,8 +74,6 @@ alias sr="sudo reboot"
 
 #keeping homefolder clean
 alias screen="screen -c ~/.config/screenrc"
-
-
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
@@ -158,7 +131,6 @@ alias \
 	f="$FILE" \
 	e="$EDITOR" \
 	v="$EDITOR" \
-	p="sudo pacman" \
 	q="exit" \
 	z="zathura"
 
@@ -167,5 +139,3 @@ alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
-
-
