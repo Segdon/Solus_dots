@@ -1,0 +1,17 @@
+/*  ___      __ _
+ * | _ \___ / _(_)
+ * |   / _ \  _| |
+ * |_|_\___/_| |_|
+ *
+ * Author: Benedikt Vollmerhaus <benedikt@vollmerhaus.org>
+ * License: MIT
+ */
+
+configuration {
+    modi: "window,drun,ssh,combi";
+    show-icons: true;
+    terminal: "kitty";
+    theme: "solarized";
+    font: "hack 10";
+    combi-modi: "window,drun,ssh";
+}

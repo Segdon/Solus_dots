@@ -28,8 +28,6 @@ alias wget="wget -c"
 alias update='sudo eopkg upgrade'
 alias eup='sudo eopkg upgrade'
 
-# yay as aur helper - updates everything
-
 alias copyPackages="eopkg li | cut -d ' ' -f 1 | tr '\n' ' ' > ~/InstalledPackages"
 alias restorePackages='sudo eopkg install $(cat InstalledPackages)'
 
@@ -110,6 +108,7 @@ alias \
 	free="free -h" \
 	gitu="git add . && git commit && git push" \
 	#dots="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME" \
+	htop="bpytop" \
 	df="df -h" \
 	ffmpeg="ffmpeg -hide_banner"
 

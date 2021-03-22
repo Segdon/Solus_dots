@@ -12,8 +12,9 @@ set $down j
 set $up k
 set $right l
 set $browser --no-startup-id firefox
-set $file --no-startup-id pcmanfm
+set $file --no-startup-id ranger
 set $terminal --no-startup-id kitty
+set $launcher --no-startup-id rofi -show drun
 #set $terminal --no-startup-id alacritty
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -42,10 +43,14 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency
+#bindsym $mod+d exec --no-startup-id dmenu_recency
+#bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec $launcher
+bindsym Mod1+space exec $launcher
 
 # launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
+#bindsym $mod+z exec --no-startup-id morc_menu
+bindsym $mod+z exec --no-startup-id krunner
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -192,6 +197,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
 # assign [class="Pale moon"] $ws2
+assign [class="firefox"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
 
@@ -454,3 +460,12 @@ for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="(?i)*nextcloud*"] floating disable
 
+#bar {
+#	font pango:mono 10
+#	status_command i3blocks
+#	tray_output primary
+#	position top
+#	mode dock
+#	modifier None
+#}
+exec_always --no-startup-id $HOME/.dotfiles/i3/i3poly.sh
