@@ -460,12 +460,12 @@ for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="(?i)*nextcloud*"] floating disable
 
-#bar {
-#	font pango:mono 10
-#	status_command i3blocks
-#	tray_output primary
-#	position top
-#	mode dock
-#	modifier None
-#}
-exec_always --no-startup-id $HOME/.dotfiles/i3/i3poly.sh
+bar {
+	font pango:mono 10
+	status_command i3blocks
+	tray_output primary
+	position top
+	mode dock
+	modifier None
+}
+# exec_always --no-startup-id $HOME/.dotfiles/i3/i3poly.sh
